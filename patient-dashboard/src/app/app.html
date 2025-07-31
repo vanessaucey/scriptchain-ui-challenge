@@ -1,5 +1,23 @@
 <div class="container">
   <h1>Hello, Dr. Noori!</h1>
   <app-search-bar></app-search-bar>
+  
+  <app-patient-card
+  [name]="'Ashley Citarella'"
+  [nextAppointment]="'Today 9:00 am'"
+  [dob]="'07/02/1999'"
+  [sex]="'Female'"
+  [residence]="'Santa Clara, CA'"
+  [mrn]="'YTK12753789'"
+  [id]="'ID-8765'"
+  [ssn]="'0000'"
+  [phone]="'(000)-000-0000'"
+  [email]="'ashley@example.com'"
+  [hospital]="'General Hospital'"
+  [dept]="'Cardiology'"
+  [physician]="'Dr. Smith'"
+  [conditions]="'COPD'">
+</app-patient-card>
+
   <app-patient-list></app-patient-list>
 </div>
