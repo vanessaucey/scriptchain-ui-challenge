@@ -1,1 +1,68 @@
-<p>search-bar works!</p>
+<div class="search-bar">
+	<!-- Tabs -->
+	<div class="tabs">
+		<button 
+			[class.active]="activeTab === 'basic'" 
+		  	(click)="setTab('basic')">
+		  	Basic
+		</button>
+		<button 
+		  	[class.active]="activeTab === 'advanced'" 
+		  	(click)="setTab('advanced')">
+		  	Advanced
+		</button>
+	  </div>
+	
+	  <!-- Basic Search -->
+		<div *ngIf="activeTab === 'basic'" class="basic-search">
+			<h4>Patient Info</h4>
+			<div class="patient-info-fields">
+				<label> 
+					First Name
+					<input type="text" placeholder="type here..." [(ngModel)]="firstName" (ngModelChange)="emitFilters()">
+				</label>
+				<label>
+					Last Name
+					<input type="text" placeholder="type here..." [(ngModel)]="lastName" (ngModelChange)="emitFilters()">
+				</label>
+				<label>
+					DOB
+					<input type="date" [(ngModel)]="dob" (ngModelChange)="emitFilters()">
+				</label>
+		</div>
+	
+		<h4>Appointment Range</h4>
+		<div class="appointment-range">
+		  	<label>
+				Start Date
+				<input type="date" [(ngModel)]="startDate" (ngModelChange)="emitFilters()">
+		  	</label>
+		  	<label>
+				End Date
+				<input type="date" [(ngModel)]="endDate" (ngModelChange)="emitFilters()">
+		  	</label>
+		</div>
+	</div>
+  
+	<!-- Advanced Search -->
+	<div *ngIf="activeTab === 'advanced'" class="advanced-search">
+	  <label>
+		Hospital:
+		<input type="text" [(ngModel)]="advancedFilters.hospital">
+	  </label>
+	  <label>
+		Department:
+		<input type="text" [(ngModel)]="advancedFilters.department">
+	  </label>
+	  <label>
+		Physician:
+		<input type="text" [(ngModel)]="advancedFilters.physician">
+	  </label>
+	</div>
+
+	  <!-- SEARCH BUTTON ALWAYS VISIBLE -->
+	<div class="search-btn-container">
+		<button type="button" (click)="emitFilters()">Search</button>
+	</div>
+  </div>
+  

@@ -15,4 +15,10 @@ import { SearchBar } from './search-bar/search-bar';
 })
 export class App {
   protected readonly title = signal('patient-dashboard');
+  
+  filters: any = {};
+
+  onFilters(newFilters: any) {
+    this.filters = newFilters;
+  }
 }

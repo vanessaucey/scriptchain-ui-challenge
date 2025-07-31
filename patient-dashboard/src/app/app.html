@@ -1,7 +1,9 @@
 <div class="container">
   <h1>Hello, Dr. Noori!</h1>
-  <app-search-bar></app-search-bar>
   
+  <app-search-bar (filtersChange)="onFilters($event)"></app-search-bar>
+  <app-patient-list [filters]="filters"></app-patient-list>
+   
   <!-- Created hard code of patient card to visualize output-->
   <!-- <app-patient-card
   [name]="'Ashley Citarella'"
@@ -20,5 +22,4 @@
   [conditions]="'COPD'">
 </app-patient-card> -->
 
-  <app-patient-list></app-patient-list>
 </div>

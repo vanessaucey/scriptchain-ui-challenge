@@ -1,10 +1,8 @@
-<p>patient-list works!</p>
-
-<!-- Loop through array patients with local variable patient 
+<!-- Loop through array filteredPatients with local variable patient 
 	and passing each field to PatientCard -->
 <div class="patient-list">
 	<app-patient-card
-		*ngFor="let patient of patients"
+		*ngFor="let patient of filteredPatients"
 		[name]="patient.name"
 		[dob]="patient.dob"
 		[sex]="patient.sex"

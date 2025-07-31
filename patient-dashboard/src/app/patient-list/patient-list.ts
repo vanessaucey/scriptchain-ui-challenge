@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PatientCard } from '../patient-card/patient-card';
 
@@ -10,6 +10,9 @@ import { PatientCard } from '../patient-card/patient-card';
   styleUrl: './patient-list.scss'
 })
 export class PatientList {
+  // receives the search term
+  @Input() filters: any = {};
+
   patients = [
     {
       name: 'Ashley Citarella',
@@ -43,6 +46,39 @@ export class PatientList {
       nextAppointment: 'Tomorrow 10:30 am',
       conditions: 'Hypertension, Asthma'
     }
-    
   ]
+  
+  get filteredPatients() {
+    return this.patients.filter(patient => {
+      const f = this.filters;
+
+      // split name to check first/last name separately
+      const [firstName, lastName] = patient.name.split(' ');
+
+      // check first name
+      if (f.firstName && !firstName.toLowerCase().includes(f.firstName.toLowerCase())) {
+        return false;
+      }
+
+      // check last name
+      if (f.lastName && !lastName.toLowerCase().includes(f.lastName.toLowerCase())) {
+        return false;
+      }
+
+      // check DOB
+      if (f.dob && patient.dob !== f.dob) {
+        return false;
+      }
+
+      // check appointment range
+      if (f.startDate && patient.nextAppointment < f.startDate) {
+        return false;
+      }
+      if (f.endDate && patient.nextAppointment > f.endDate) {
+        return false;
+      }
+
+      return true;
+    });
+  }
 }
