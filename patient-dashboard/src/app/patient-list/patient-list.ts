@@ -52,24 +52,21 @@ export class PatientList {
     return this.patients.filter(patient => {
       const f = this.filters;
 
+      // BASIC SEARCH
       // split name to check first/last name separately
       const [firstName, lastName] = patient.name.split(' ');
-
       // check first name
       if (f.firstName && !firstName.toLowerCase().includes(f.firstName.toLowerCase())) {
         return false;
       }
-
       // check last name
       if (f.lastName && !lastName.toLowerCase().includes(f.lastName.toLowerCase())) {
         return false;
       }
-
       // check DOB
       if (f.dob && patient.dob !== f.dob) {
         return false;
       }
-
       // check appointment range
       if (f.startDate && patient.nextAppointment < f.startDate) {
         return false;
@@ -77,7 +74,21 @@ export class PatientList {
       if (f.endDate && patient.nextAppointment > f.endDate) {
         return false;
       }
-
+      
+      // ADVANCED SEARCH
+      // check hospital
+      if (f.hospital && !patient.hospital.toLowerCase().includes(f.hospital.toLowerCase())) {
+        return false;
+      }
+      // check department
+      if (f.department && !patient.dept.toLowerCase().includes(f.department.toLowerCase())) {
+        return false;
+      }
+      // check physician
+      if (f.physician && !patient.physician.toLowerCase().includes(f.physician.toLowerCase())) {
+        return false;
+      }
+      
       return true;
     });
   }

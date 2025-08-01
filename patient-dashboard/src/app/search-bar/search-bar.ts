@@ -25,11 +25,10 @@ export class SearchBar {
   endDate: string = '';
 
   // advanced serach fields
-  advancedFilters = {
-    hospital: '',
-    department: '',
-    physician: ''
-  };
+  hospital: string = '';
+  department: string = '';
+  physician: string = '';
+  
 
   setTab(tab: 'basic' | 'advanced') {
     this.activeTab = tab;
@@ -37,11 +36,17 @@ export class SearchBar {
 
   emitFilters() {
     this.filtersChange.emit({
+      // basic search
       firstName: this.firstName,
       lastName: this.lastName,
       dob: this.dob,
       startDate: this.startDate,
-      endDate: this.endDate
+      endDate: this.endDate,
+
+      // advanced search
+      hospital: this.hospital,
+      department: this.department,
+      physician: this.physician
     });
   }
 }

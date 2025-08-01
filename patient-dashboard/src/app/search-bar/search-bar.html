@@ -46,19 +46,19 @@
   
 	<!-- Advanced Search -->
 	<div *ngIf="activeTab === 'advanced'" class="advanced-search">
-	  <label>
-		Hospital:
-		<input type="text" [(ngModel)]="advancedFilters.hospital">
-	  </label>
-	  <label>
-		Department:
-		<input type="text" [(ngModel)]="advancedFilters.department">
-	  </label>
-	  <label>
-		Physician:
-		<input type="text" [(ngModel)]="advancedFilters.physician">
-	  </label>
-	</div>
+		<label>
+		  Hospital
+		  <input type="text" placeholder="type here..." [(ngModel)]="hospital" (ngModelChange)="emitFilters()">
+		</label>
+		<label>
+		  Department
+		  <input type="text" placeholder="type here..." [(ngModel)]="department" (ngModelChange)="emitFilters()">
+		</label>
+		<label>
+		  Physician
+		  <input type="text" placeholder="type here..." [(ngModel)]="physician" (ngModelChange)="emitFilters()">
+		</label>
+	  </div>
 
 	  <!-- SEARCH BUTTON ALWAYS VISIBLE -->
 	<div class="search-btn-container">
