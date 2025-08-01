@@ -1,0 +1,21 @@
+.page-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;  
+
+	h1 {
+		text-align: center;
+		font-size: 2rem;
+		font-weight: 700;
+		margin: 1rem 0 2rem;
+		color: #2d5059;
+	  }
+}
+
+
+/*  narrower margins on small screens */
+@media (max-width: 768px) {
+	.page-container {
+	  padding: 0 1rem; 
+	}
+}
