@@ -1,16 +1,8 @@
 <div class="search-bar">
 	<!-- Tabs -->
 	<div class="tabs">
-		<button 
-			[class.active]="activeTab === 'basic'" 
-		  	(click)="setTab('basic')">
-		  	Basic
-		</button>
-		<button 
-		  	[class.active]="activeTab === 'advanced'" 
-		  	(click)="setTab('advanced')">
-		  	Advanced
-		</button>
+		<button [class.active]="activeTab === 'basic'" (click)="setTab('basic')">Basic</button>
+		<button [class.active]="activeTab === 'advanced'" (click)="setTab('advanced')">Advanced</button>
 	  </div>
 	
 	  <!-- Basic Search -->

@@ -1,27 +1,67 @@
 .patient-card {
 	background: #fff;
-	border-radius: 12px;
-	padding: 1rem;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	padding: 1.5rem;
+	border-radius: 8px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+	margin-bottom: 1rem;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
   
 	.patient-header {
-	  h2 {
-		margin: 0;
-		font-size: 1.4rem;
-		color: #2c3e50;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  border-bottom: 1px solid #e0e0e0;
+	  padding-bottom: 0.5rem;
+  
+	  .patient-name {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #333;
+	  }
+  
+	  .appointment-time {
+		font-weight: 600;
+		color: #4a7c85; // teal accent for appointment time
 	  }
 	}
   
-	.patient-info,
-	.patient-hospital, .patient-contact {
-	  font-size: 0.95rem;
-	  color: #333;
+	.patient-info {
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr);
+	  gap: 1rem;
+  
+	  .info-col p {
+		margin: 0.25rem 0;
+		font-size: 0.9rem;
+  
+		strong {
+		  font-weight: 600;
+		  color: #444;
+		}
+	  }
+	}
+  
+	.hospital-info {
+	  padding-top: 0.5rem;
+	  border-top: 1px solid #eee;
   
 	  p {
-		margin: 0.2rem 0;
+		margin: 0.25rem 0;
+		font-size: 0.9rem;
+  
+		strong {
+		  font-weight: 600;
+		  color: #444;
+		}
+	  }
+	}
+  
+	// responsive design
+	@media (max-width: 768px) {
+	  .patient-info {
+		grid-template-columns: 1fr; // stack info cols on small screens
 	  }
 	}
   }

@@ -1,22 +1,39 @@
-<!-- Loop through array filteredPatients with local variable patient 
-	and passing each field to PatientCard -->
 <div class="patient-list">
-	<app-patient-card
-		*ngFor="let patient of filteredPatients"
-		[name]="patient.name"
-		[dob]="patient.dob"
-		[sex]="patient.sex"
-		[residence]="patient.residence"
-		[mrn]="patient.mrn"
-		[id]="patient.id"
-		[ssn]="patient.ssn"
-		[phone]="patient.phone"
-		[email]="patient.email"
-		[hospital]="patient.hospital"
-		[dept]="patient.dept"
-		[physician]="patient.physician"
-		[nextAppointment]="patient.nextAppointment"
-		[conditions]="patient.conditions">
-	</app-patient-card>
-  </div>
+
+	<!-- Tabs -->
+	<div class="tabs">
+		<button 
+			[class.active]="activeTab === 'today'" 
+		  	(click)="setTab('today')">
+		 	Today’s patients
+		</button>
+		<button 
+		  	[class.active]="activeTab === 'search'" 
+		  	(click)="setTab('search')">
+		  	Search results
+		</button>
+	  </div>
+	<!-- Patient Card List -->
+	<!-- Loop through array filteredPatients with local variable patient 
+	and passing each field to PatientCard -->
+	<div class = "patient-cards">
+		<app-patient-card
+			*ngFor="let patient of filteredPatients"
+			[name]="patient.name"
+			[dob]="patient.dob"
+			[sex]="patient.sex"
+			[residence]="patient.residence"
+			[mrn]="patient.mrn"
+			[id]="patient.id"
+			[ssn]="patient.ssn"
+			[phone]="patient.phone"
+			[email]="patient.email"
+			[hospital]="patient.hospital"
+			[dept]="patient.dept"
+			[physician]="patient.physician"
+			[nextAppointment]="patient.nextAppointment"
+			[conditions]="patient.conditions">
+		</app-patient-card>
+	</div>
+</div>
   
